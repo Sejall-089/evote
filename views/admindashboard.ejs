@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Home</title>
+    
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+   
+    
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
+    />
+    
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/read-excel-file@4.x/bundle/read-excel-file.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.bundle.min.js'></script>
+
+    <script src="/javascripts/admindashboard.js"></script>
+    
+    
+  </head>
+  <body>
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#" >Dashboard</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a href="/admin/admindashboard" class="btn" style="border: 0px; border-color: transparent;padding: 10px;background-color: transparent;text-decoration: underline;">
+                  <button style="border: 0px; border-color: transparent;padding: 10px;background-color: transparent;" type="submit" name="showuploadfiles" value=""
+                    >
+                    Home
+                  </button>
+              </a>
+              </li>
+            <li class="nav-item">
+              <a href="/admin/showadduser" class="btn" style="border: 0px; border-color: transparent;padding: 10px;background-color: transparent;">
+                <button style="border: 0px; border-color: transparent;padding: 10px;background-color: transparent;" type="submit" name="showuploadfiles" value=""
+                  >
+                  Add User
+                </button>
+            </a>
+            </li>
+            <li class="nav-item">
+                <a href="/admin/showaddpartycandidate" class="btn" style="border: 0px; border-color: transparent;padding: 10px;background-color: transparent;">
+                  <button style="border: 0px; border-color: transparent;padding: 10px;background-color: transparent;" type="submit" name="showuploadfiles" value=""
+                    >
+                    Add Party Candidate
+                  </button>
+              </a>
+              </li>
+           
+            
+           
+            
+            
+          </ul>
+          <div class="d-flex">
+            <a href="/admin/adminlogout" class="btn btn-primary btn-lg">
+              Sign Out
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- Navbar End -->
+
+    <div>
+        <center>
+            <a id="showvotingstatus" class="btn btn-primary" style="margin-top: 20px;">Show Voting Status</a>
+            <div class="container">
+                <div class="table-responsive" style="padding-top: 10px;">
+                    <table class="table table-bordered">
+                      <thead>
+                        <th>Party Name</th>
+                        <th>Votes</th>
+                      </thead>
+                      <tbody id="result">
+                         
+                      </tbody>
+                    </table>
+                  </div>
+            </div>
+        </center>
+    </div>
+    <div class="page-content page-container" id="page-content">
+      <div class="padding">
+          <div class="row">
+              <div class="container-fluid d-flex justify-content-center">
+                  <div class="col-sm-8 col-md-6">
+                      <div class="card">
+                          <div class="card-header">Pie chart</div>
+                          <div class="card-body" style="height: 420px">
+                              <div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
+                                  <div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                                      <div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div>
+                                  </div>
+                                  <div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                                      <div style="position:absolute;width:200%;height:200%;left:0; top:0"></div>
+                                  </div>
+                              </div> <canvas id="chart-line" class="chartjs-render-monitor" style="display: block; width: 204px; height: 100px;"></canvas>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+    <!-- Footer -->
+ 
+    <!-- Footer -->
+    
+    
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+      crossorigin="anonymous"
+    ></script>
+    
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"
+    ></script>
+    <script
+          src="https://code.jquery.com/jquery-3.6.1.js"
+          integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+          crossorigin="anonymous"></script>
+      <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"
+    ></script>
+    <!--script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+      crossorigin="anonymous"
+    ></script-->
+  </body>
+</html>
